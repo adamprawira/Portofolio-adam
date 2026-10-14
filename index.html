@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam Prawira | Profesional Portofolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<>
+    <!-- Bagian Navigasi Atas -->
+    <nav class="navbar">
+        <div class="logo">My Portofolio<span>.</span></div>
+        <ul class="menu-nav">
+            <li><a href="#beranda">Home</a></li>
+            <li><a href="#tentang">About</a></li>
+            <li><a href="#pengalaman">Experience </a></li>
+            <li><a href="#kontak">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Bagian Utama (Hero Section) -->
+    <header id="beranda" class="hero-section">
+        <div class="hero-content">
+            <h1>Adam Prawira Ramadhani</h1>
+                <h2 class="neon-text">
+                    <span class="efek-ketik"></span><span class="kursor">|</span>
+                </h2>
+            <p>Mahasiswa Pendidikan Matematika yang bersemangat merancang pengalaman belajar interaktif, tutor dedikatif, dan pemimpin dalam ekosistem esport kampus.</p>
+            <a href="#pengalaman" class="btn-neon">Experience</a>
+        </div>
+        <!-- Tempat untuk fotomu nanti -->
+        <div class="hero-image">
+           <img src="Element/Photo Adam.jpeg" alt="Foto Adam Prawira" class="foto-profil">
+        </div>
+    </header>
+
+    <!-- Bagian Pengalaman & Keahlian -->
+    <section id="pengalaman" class="section-pengalaman">
+        <h2 class="judul-section">Profesional <span class="neon-text">Experience </span></h2>
+        
+        <div class="grid-kartu">
+            <!-- Kartu 1 (Tambahkan class "tersembunyi") -->
+            <div class="kartu tersembunyi">
+                <h3>Private Tutor</h3>
+                <p class="tahun">Aktif</p>
+                <p>Mengajar siswa sekolah menengah untuk mata pelajaran Matematika dan Bahasa Inggris. Merancang modul, kuis interaktif, dan instrumen evaluasi pembelajaran.</p>
+            </div>
+
+            <!-- Kartu 2 (Tambahkan class "tersembunyi") -->
+            <div class="kartu tersembunyi">
+                <h3>Ketua UINSA Esport</h3>
+                <p class="tahun">2025 - 2026</p>
+                <p>Memimpin dan mengelola organisasi esport kampus, merancang kriteria wawancara manajerial, serta menyelenggarakan serah terima jabatan yang terstruktur.</p>
+            </div>
+
+            <!-- Kartu 3 (Tambahkan class "tersembunyi") -->
+            <div class="kartu tersembunyi">
+                <h3>Pengembangan Game Edukasi</h3>
+                <p class="tahun">Proyek Riset</p>
+                <p>Mengeksplorasi dan merancang penerapan game edukasi matematika untuk meningkatkan kecepatan aritmatika mental dan minat belajar siswa.</p>
+            </div>
+        </div>
+    </section><!-- Bagian Kontak Person -->
+    <section id="kontak" class="section-kontak">
+        <h2 class="judul-section">Need<span class="neon-text">Me?</span></h2>
+        
+        <div class="kontak-container">
+            <!-- Ganti URL di dalam href="..." dengan link profil aslimu -->
+            
+            <a href="https://instagram.com/adamprawiraaaa" target="_blank" class="btn-sosmed ig">
+                Instagram
+            </a>
+            
+            <!-- Untuk WhatsApp, gunakan format wa.me/62... diikuti nomor HP-mu (ganti angka 0 di depan dengan 62) -->
+            <a href="https://wa.me/6289520537559" target="_blank" class="btn-sosmed wa">
+                WhatsApp
+            </a>
+            
+            <a href="https://youtube.com/@DAM." target="_blank" class="btn-sosmed yt">
+                YouTube
+            </a>
+        </div>
+    </section>
+    <!-- Bagian Footer -->
+    <footer>
+        <p>&copy; 2026 Adam Prawira Ramadhani. Dibangun saat belajar Web Development.</p>
+    </footer>
+        <!-- Letakkan kod ini betul-betul di atas tag </body> -->
+    <script>
+        const senaraiTeks = ["Educator", "IT Programmer", "Design Graphic 2D", "Leadership"];
+        let indeksKata = 0;
+        let indeksHuruf = 0;
+        let sedangMemadam = false;
+        const elemenTeks = document.querySelector(".efek-ketik");
+
+        function kesanTaip() {
+            const kataSemasa = senaraiTeks[indeksKata];
+            
+            if (sedangMemadam) {
+                // Memadam huruf satu per satu
+                elemenTeks.textContent = kataSemasa.substring(0, indeksHuruf - 1);
+                indeksHuruf--;
+            } else {
+                // Menaip huruf satu per satu
+                elemenTeks.textContent = kataSemasa.substring(0, indeksHuruf + 1);
+                indeksHuruf++;
+            }
+
+            // Kelajuan menaip (200ms) dan kelajuan memadam (100ms)
+            let kelajuan = sedangMemadam ? 100 : 200;
+
+            // Logik jika perkataan sudah habis ditaip
+            if (!sedangMemadam && indeksHuruf === kataSemasa.length) {
+                kelajuan = 2000; // Berhenti 2 saat sebelum mula memadam
+                sedangMemadam = true;
+            } 
+            // Logik jika perkataan sudah habis dipadam
+            else if (sedangMemadam && indeksHuruf === 0) {
+                sedangMemadam = false;
+                indeksKata++;
+                
+                // Jika sudah sampai senarai terakhir, ulang dari awal
+                if (indeksKata === senaraiTeks.length) {
+                    indeksKata = 0; 
+                }
+                kelajuan = 500; // Berhenti seketika sebelum menaip kata seterusnya
+            }
+
+            setTimeout(kesanTaip, kelajuan);
+        }
+        // --- KODE EFEK KETIK SEBELUMNYA ADA DI SINI ---
+        
+        // --- TAMBAHAN KODE PELACAK MOUSE ---
+        const bodiWeb = document.querySelector('body');
+        
+        // Membaca setiap pergerakan mouse di layar
+        document.addEventListener('mousemove', function(e) {
+            // Mengambil posisi X (kiri-kanan) dan Y (atas-bawah) dari kursor
+            let posisiX = e.clientX;
+            let posisiY = e.clientY;
+            
+            // Mengirimkan nilai tersebut ke dalam CSS sebagai variabel --x dan --y
+            bodiWeb.style.setProperty('--x', posisiX + 'px');
+            bodiWeb.style.setProperty('--y', posisiY + 'px');
+        });
+         // Mulakan animasi apabila laman web siap dimuatkan
+        document.addEventListener("DOMContentLoaded", kesanTaip);
+
+        // --- KODE EFEK KETIK & PELACAK MOUSE SEBELUMNYA ---
+
+        // --- TAMBAHAN KODE SCROLL REVEAL ---
+        // 1. Buat si 'pengawas' (Observer)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                // Jika elemen sudah masuk ke dalam jangkauan layar
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('terlihat'); // Tambahkan class 'terlihat'
+                    observer.unobserve(entry.target); // Hentikan pengawasan agar animasinya tidak berulang-ulang
+                }
+            });
+        }, {
+            threshold: 0.2 // Elemen akan muncul ketika 20% bagian dari kartu tersebut sudah terlihat di layar
+        });
+
+        // 2. Perintahkan pengawas untuk memantau semua elemen yang punya class 'tersembunyi'
+        const elemenTersembunyi = document.querySelectorAll('.tersembunyi');
+        elemenTersembunyi.forEach((el) => observer.observe(el));
+
+    </script>
+</body>
+</html>
