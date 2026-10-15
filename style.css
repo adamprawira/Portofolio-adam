@@ -402,3 +402,56 @@ footer {
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
     transform: translateY(-5px);
 }
+
+@media screen and (max-width: 768px) {
+    
+    /* 1. Navbar: Menyusun logo dan menu menjadi atas-bawah */
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .menu-nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* 2. Hero Section: Teks dan Foto ditumpuk atas-bawah dan diletakkan di tengah */
+    .hero-section {
+        flex-direction: column; /* Mengubah susunan menyamping jadi atas-bawah */
+        text-align: center;
+        padding: 50px 5vw;
+        gap: 40px;
+        margin-top: 30px;
+    }
+
+    /* Memastikan tombol neon ikut ke tengah */
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Mengecilkan ukuran teks utama agar tidak kepotong di HP */
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    /* 3. Foto Profil: Dikecilkan sedikit agar muat di layar sempit */
+    .foto-profil {
+        width: 220px;
+        height: 220px;
+    }
+
+    /* 4. Bagian Pengalaman & Kontak: Mengurangi jarak kosong di pinggir */
+    .section-pengalaman, .section-kontak {
+        padding: 50px 5vw;
+    }
+    
+    /* Kartu pengalaman dibuat melebar penuh memenuhi layar HP */
+    .kartu {
+        width: 100%;
+    }
+}
